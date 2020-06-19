@@ -2,6 +2,10 @@
   import Welcome from "./screens/Welcomes.svelte";
 
   let state = "welcome"; // or "playing"
+
+  const start = (e) => {
+    console.log(e);
+  };
 </script>
 
 <style>
@@ -19,7 +23,7 @@
 
 <main>
   {#if state === 'welcome'}
-    <Welcome />
+    <Welcome on:select={start} />
   {:else if state === 'playing'}
     <p>Playing Screen goes here</p>
   {/if}
