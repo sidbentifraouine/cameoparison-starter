@@ -11,6 +11,8 @@
     max-width: 800px;
     margin: 0 auto;
     height: 100%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
   }
 </style>
