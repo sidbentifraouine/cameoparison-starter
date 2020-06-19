@@ -1,5 +1,6 @@
 <script>
   import Card from "../components/Card.svelte";
+  import { sleep } from "../utils";
 
   export let selection;
 
@@ -15,11 +16,14 @@
   );
 
   let i = 0;
+  let last_result;
 
-  const submit = (a, b, sign) => {
-    const result = Math.sign(a.price - b.price) === sign ? "right" : "wrong";
+  const submit = async (a, b, sign) => {
+    last_result = Math.sign(a.price - b.price) === sign ? "right" : "wrong";
 
-    console.log({ result });
+    await sleep(1500);
+
+    last_result = null;
 
     if (i < selection.length - 1) {
       i += 1;
@@ -51,6 +55,15 @@
 
   .error {
     color: red;
+  }
+
+  .giant-result {
+    position: fixed;
+    width: 50vmin;
+    height: 50vmin;
+    left: calc(50vw - 25vmin);
+    top: calc(50vh - 25vmin);
+    opacity: 0.5;
   }
 
   @media (min-width: 640px) {
@@ -95,6 +108,13 @@
     <p class="error">Oops! Failed to load data</p>
   {/await}
 </div>
+
+{#if last_result}
+  <img
+    class="giant-result"
+    src="/icons/{last_result}.svg"
+    alt="{last_result} answer" />
+{/if}
 
 <div class="result">
   <p>result will go here</p>
