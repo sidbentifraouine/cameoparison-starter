@@ -160,7 +160,11 @@
     {#await promises[i] then [a, b]}
       <div class="game">
         <div class="card-container">
-          <Card celeb={a} on:select={() => submit(a, b, 1)} />
+          <Card
+            celeb={a}
+            on:select={() => submit(a, b, 1)}
+            showprice={!!last_result}
+            winner={a.price >= b.price} />
         </div>
 
         <button class="same" on:click={() => submit(a, b, 0)}>
@@ -168,7 +172,11 @@
         </button>
 
         <div class="card-container">
-          <Card celeb={b} on:select={() => submit(a, b, -1)} />
+          <Card
+            celeb={b}
+            on:select={() => submit(a, b, -1)}
+            showprice={!!last_result}
+            winner={b.price >= a.price} />
         </div>
       </div>
     {:catch}
