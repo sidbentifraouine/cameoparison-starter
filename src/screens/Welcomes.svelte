@@ -51,6 +51,19 @@
     max-width: 26em;
     margin: 0 auto;
   }
+
+  button {
+    padding: 0.5em 1em;
+    margin: 0 0.2em 0.2em;
+  }
+
+  @media (miin-width: 640px) {
+    button {
+      display: inline;
+      margin: 0 0.2em 0.4em 0.2em;
+      width: auto;
+    }
+  }
 </style>
 
 <header>
