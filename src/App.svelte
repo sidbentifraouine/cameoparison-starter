@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import Welcome from "./screens/Welcomes.svelte";
+  import Game from "./screens/Game.svelte";
   import { select } from "./select.js";
 
   let celebs_promise;
@@ -64,6 +65,6 @@
   {#if state === 'welcome'}
     <Welcome on:select={start} />
   {:else if state === 'playing'}
-    <p>Playing Screen goes here</p>
+    <Game {selection} />
   {/if}
 </main>
