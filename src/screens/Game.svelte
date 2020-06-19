@@ -1,4 +1,6 @@
 <script>
+  import Card from "../components/Card.svelte";
+
   export let selection;
 
   const load_details = async (celeb) => {
@@ -33,9 +35,13 @@
 <div class="game-container">
   {#await promises[i] then [a, b]}
     <div class="game">
-      <div class="card-container">{a.name}</div>
+      <div class="card-container">
+        <Card celeb={a} />
+      </div>
       <div class="same">Same price</div>
-      <div class="card-container">{b.name}</div>
+      <div class="card-container">
+        <Card celeb={b} />
+      </div>
     </div>
   {:catch}
     <p class="error">Oops! Failed to load data</p>
