@@ -55,9 +55,10 @@
   button {
     padding: 0.5em 1em;
     margin: 0 0.2em 0.2em;
+    width: 100%;
   }
 
-  @media (miin-width: 640px) {
+  @media (min-width: 640px) {
     button {
       display: inline;
       margin: 0 0.2em 0.4em 0.2em;
