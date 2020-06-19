@@ -1,5 +1,13 @@
 <script>
-
+  const categories = [
+    { slug: "actors", label: "Actors" },
+    { slug: "athletes", label: "Athletes" },
+    { slug: "comedians", label: "Comedian" },
+    { slug: "creators", label: "Creators" },
+    { slug: "models", label: "Models" },
+    { slug: "musicians", label: "Musicians" },
+    { slug: "reality-tv", label: "Reality TV" },
+  ];
 </script>
 
 <style>
@@ -25,6 +33,12 @@
     left: 0.02em;
     text-indent: -9999px;
   }
+
+  .categories {
+    width: 100%;
+    max-width: 26em;
+    margin: 0 auto;
+  }
 </style>
 
 <header>
@@ -43,3 +57,10 @@
 
   <p>But who commands the highest price?</p>
 </header>
+
+<p>Pick a category to play the game:</p>
+<div class="categories">
+  {#each categories as category}
+    <button>{category.label}</button>
+  {/each}
+</div>
